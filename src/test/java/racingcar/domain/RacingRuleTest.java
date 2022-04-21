@@ -4,15 +4,26 @@ import org.junit.jupiter.api.Test;
 import racingcar.enumeration.MoveStatus;
 import racingcar.exception.RacerException;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RacingRuleTest {
 
     @Test
+    void 참가자_등록() {
+        List<String> testRacers = Arrays.asList("chan", "jun", "lee");
+        List<String> racers = RacingRule.enterRacer("chan,jun,lee");
+
+        assertEquals(racers, testRacers);
+    }
+
+    @Test
     void 전진() {
         MoveStatus moveStatus = RacingRule.move("8");
-        assertEquals(moveStatus, MoveStatus.START);
+        assertEquals(moveStatus, MoveStatus.MOVE);
     }
 
     @Test

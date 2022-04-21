@@ -1,5 +1,9 @@
 package racingcar.enumeration;
 
 public enum MoveStatus {
-    STOP, START;
+    STOP, MOVE;
+
+    public boolean isMoved() {
+        return this == MoveStatus.MOVE;
+    }
 }
