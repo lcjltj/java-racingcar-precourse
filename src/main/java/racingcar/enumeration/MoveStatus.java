@@ -1,9 +1,9 @@
 package racingcar.enumeration;
 
 public enum MoveStatus {
-    STOP, MOVE;
+    STOP, MOVING_FORWARD;
 
     public boolean isMoved() {
-        return this == MoveStatus.MOVE;
+        return this == MoveStatus.MOVING_FORWARD;
     }
 }
