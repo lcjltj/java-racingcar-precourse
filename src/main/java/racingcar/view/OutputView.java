@@ -1,7 +1,7 @@
 package racingcar.view;
 
 public class OutputView {
-    private static final String RESULT_MESSAGE = "최종 우승자는 %s 입니다.";
+    private static final String RESULT_MESSAGE = "최종 우승자: %s";
     private static final String EACH_STAGE_MESSAGE = "%s : %s";
     private static final String EMPTY = "";
 
