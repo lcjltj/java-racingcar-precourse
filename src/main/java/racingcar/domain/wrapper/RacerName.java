@@ -1,7 +1,7 @@
-package racingcar.domain;
+package racingcar.domain.wrapper;
 
-import racingcar.exception.RacerException;
-import racingcar.exception.RacerExceptionType;
+import racingcar.exception.RacingException;
+import racingcar.exception.RacingExceptionType;
 
 public class RacerName {
     private static final int MIN_LENGTH = 1;
@@ -25,13 +25,13 @@ public class RacerName {
 
     private void validNull(final String name) {
         if (name == null) {
-            throw new RacerException(RacerExceptionType.INVALID_RACING_NAME_NOT_NULL);
+            throw new RacingException(RacingExceptionType.INVALID_RACING_NAME_NOT_NULL);
         }
     }
 
     private void validLength(final String name) {
         if (!isValidLength(name.length())) {
-            throw new RacerException(RacerExceptionType.INVALID_RACING_NAME_LENGTH);
+            throw new RacingException(RacingExceptionType.INVALID_RACING_NAME_LENGTH);
         }
     }
 
