@@ -1,9 +1,7 @@
 package racingcar.domain.wrapper;
 
-import racingcar.domain.RacingRule;
-
 public class Location {
-    private static final int ZERO = 0;
+    private static final int DEFAULT_DISTANCE = 0;
     private static final String EMPTY = "";
     private static final String DASH = "-";
 

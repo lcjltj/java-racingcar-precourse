@@ -1,7 +1,28 @@
 package racingcar.enumeration;
 
+import racingcar.exception.StaticRacingException;
+import racingcar.view.OutputView;
+
 public enum MoveStatus {
-    STOP, MOVING_FORWARD;
+    STOP(0, 4),
+    MOVING_FORWARD(4, 10);
+
+    private final int startBoundary;
+    private final int endBoundary;
+
+    MoveStatus(int lowerBoundary, int upperBoundary) {
+        this.startBoundary = lowerBoundary;
+        this.endBoundary = upperBoundary;
+    }
+
+    public static boolean isMoved(final long randomNumber) {
+        return getValidStatus(randomNumber) == MOVING_FORWARD;
+    }
+
+    private static MoveStatus getValidStatus(final long move) {
+        if (STOP.isInBoundary(move)) {
+            return STOP;
+        }
 
         if (MOVING_FORWARD.isInBoundary(move)) {
             return MOVING_FORWARD;

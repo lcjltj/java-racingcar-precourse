@@ -1,7 +1,7 @@
 package racingcar.domain.wrapper;
 
-import racingcar.exception.RacingException;
-import racingcar.exception.RacingExceptionType;
+import racingcar.exception.StaticRacingException;
+import racingcar.view.OutputView;
 
 public class RacerName {
     private static final int MIN_LENGTH = 1;
@@ -25,7 +25,8 @@ public class RacerName {
 
     private void validNull(final String name) {
         if (name == null) {
-            throw new RacingException(RacingExceptionType.INVALID_RACING_NAME_NOT_NULL);
+            OutputView.printErrorMessage(StaticRacingException.INVALID_RACING_NAME_NOT_NULL_EXCEPTION.getMessage());
+            throw StaticRacingException.INVALID_RACING_NAME_NOT_NULL_EXCEPTION;
         }
     }
 
