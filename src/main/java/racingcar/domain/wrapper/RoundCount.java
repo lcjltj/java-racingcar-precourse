@@ -2,6 +2,8 @@ package racingcar.domain.wrapper;
 
 import racingcar.exception.RacingException;
 import racingcar.exception.RacingExceptionType;
+import racingcar.exception.StaticRacingException;
+import racingcar.view.OutputView;
 
 public class RoundCount {
     private static final String REGEX = "^[0-9]+";
@@ -24,7 +26,8 @@ public class RoundCount {
 
     private void validNumber(final String count) {
         if (!isMatched(count)) {
-            throw new RacingException(RacingExceptionType.INVALID_ROUND_NOT_NUMBER);
+            OutputView.printErrorMessage(StaticRacingException.INVALID_ROUND_NOT_NUMBER_EXCEPTION.getMessage());
+            throw StaticRacingException.INVALID_ROUND_NOT_NUMBER_EXCEPTION;
         }
     }
 
@@ -34,7 +37,8 @@ public class RoundCount {
 
     private void validGreaterThanZero(final int count) {
         if (!isGreaterThenZero(count)) {
-            throw new RacingException(RacingExceptionType.INVALID_ROUND_LESS_THEN_ZERO);
+            OutputView.printErrorMessage(StaticRacingException.INVALID_ROUND_LESS_THEN_ZERO_EXCEPTION.getMessage());
+            throw StaticRacingException.INVALID_ROUND_LESS_THEN_ZERO_EXCEPTION;
         }
     }
 

@@ -7,7 +7,6 @@ public class RacingException extends RuntimeException {
 
     public RacingException(final RacingExceptionType racerException) {
         super(racerException.getMessage());
-        printErrorMessage(racerException.getMessage());
     }
 
     private void printErrorMessage(final String message) {

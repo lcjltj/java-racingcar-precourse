@@ -8,12 +8,13 @@ public enum RacingExceptionType {
     INVALID_ROUND_LESS_THEN_ZERO("시도 횟수는 0보다 큰값만 가능 합니다.");
 
     private final String message;
+    private static final String MESSAGE_PREFIX = "[ERROR] ";
 
     RacingExceptionType(final String message) {
         this.message = message;
     }
 
     public String getMessage() {
-        return message;
+        return MESSAGE_PREFIX + message;
     }
 }

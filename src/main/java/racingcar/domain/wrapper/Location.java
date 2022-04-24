@@ -7,27 +7,24 @@ public class Location {
     private static final String EMPTY = "";
     private static final String DASH = "-";
 
-    private int location;
+    private int distance;
+    private String dashDistance;
 
     public Location() {
-        location = ZERO;
+        distance = DEFAULT_DISTANCE;
+        dashDistance = EMPTY;
     }
 
-    public int getLocation() {
-        return location;
+    public int getDistance() {
+        return distance;
     }
 
     public String getDashDistance() {
-        StringBuilder dashDistance = new StringBuilder(EMPTY);
-        for (int i = 0; i < location; i++) {
-            dashDistance.append(dashDistance).append(DASH);
-        }
-        return dashDistance.toString();
+        return dashDistance;
     }
 
-    public void move(final long move) {
-        if (RacingRule.move(move).isMoved()) {
-            location = location + 1;
-        }
+    public void moveForward() {
+        distance++;
+        dashDistance += DASH;
     }
 }

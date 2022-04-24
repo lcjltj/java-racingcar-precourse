@@ -26,7 +26,6 @@ public class Racing {
     private void runEachRound() {
         for (Racer racer : racers.getRacers()) {
             racer.move(RandomUtil.random());
-            racer.currentLocation();
         }
         OutputView.printLine();
     }

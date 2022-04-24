@@ -1,5 +1,6 @@
 package racingcar.domain.wrapper;
 
+import racingcar.enumeration.MoveStatus;
 import racingcar.view.OutputView;
 
 public class Racer {
@@ -11,16 +12,15 @@ public class Racer {
         this.location = new Location();
     }
 
-    public void move(final long move) {
-        location.move(move);
-    }
-
-    public void currentLocation() {
-        OutputView.printEachStage(name.getName(), location.getDashDistance());
+    public void move(final long randomNumber) {
+        if (MoveStatus.isMoved(randomNumber)) {
+            location.moveForward();
+        }
+        printCurrentDistance();
     }
 
     public int maxInstance(final int maxInstance) {
-        return Math.max(maxInstance, location.getLocation());
+        return Math.max(maxInstance, location.getDistance());
     }
 
     public String getWinnerName(final int maxInstance) {
@@ -30,7 +30,11 @@ public class Racer {
         return null;
     }
 
+    private void printCurrentDistance() {
+        OutputView.printEachStage(name.getName(), location.getDashDistance());
+    }
+
     private boolean isWinner(final int maxInstance) {
-        return location.getLocation() == maxInstance;
+        return location.getDistance() == maxInstance;
     }
 }

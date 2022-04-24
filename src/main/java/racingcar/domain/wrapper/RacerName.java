@@ -31,7 +31,8 @@ public class RacerName {
 
     private void validLength(final String name) {
         if (!isValidLength(name.length())) {
-            throw new RacingException(RacingExceptionType.INVALID_RACING_NAME_LENGTH);
+            OutputView.printErrorMessage(StaticRacingException.INVALID_RACING_NAME_LENGTH_EXCEPTION.getMessage());
+            throw StaticRacingException.INVALID_RACING_NAME_LENGTH_EXCEPTION;
         }
     }
 

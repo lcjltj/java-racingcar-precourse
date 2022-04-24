@@ -1,8 +1,5 @@
 package racingcar.domain.wrapper;
 
-import racingcar.exception.RacingException;
-import racingcar.exception.RacingExceptionType;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +10,6 @@ public class Racers {
     public final List<Racer> racers;
 
     public Racers(final String racers) {
-        validNull(racers);
         this.racers = mapRacers(racers);
     }
 
@@ -27,12 +23,6 @@ public class Racers {
             maxInstance = racer.maxInstance(maxInstance);
         }
         return maxInstance;
-    }
-
-    private void validNull(final String racers) {
-        if (racers == null) {
-            throw new RacingException(RacingExceptionType.INVALID_RACING_NAME_NOT_NULL);
-        }
     }
 
     private List<Racer> mapRacers(final String racers) {
